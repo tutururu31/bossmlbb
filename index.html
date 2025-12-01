@@ -9,7 +9,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <!-- Приветственное сообщение -->
+    <div id="welcome-message" class="welcome-message active">
+        <div class="welcome-content">
+            <h1><i class="fas fa-dragon"></i> MLBB Битва с Боссами</h1>
+            <p class="welcome-description">
+                Сражайся с могучим боссом, улучшай свои способности и фарми монстров для золота!
+                Покажи, кто здесь настоящий герой!
+            </p>
+            <div class="welcome-features">
+                <div class="feature">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <span>Босс на 100,000 HP</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Улучшения в магазине</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-spider"></i>
+                    <span>5 видов монстров</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Детальная статистика</span>
+                </div>
+            </div>
+            <button id="start-game-btn" class="start-game-btn">
+                <i class="fas fa-play-circle"></i> НАЧАТЬ ИГРУ
+            </button>
+        </div>
+    </div>
+
+    <div class="container" id="game-container" style="display: none;">
         <header>
             <h1><i class="fas fa-dragon"></i> MLBB Битва с Боссами</h1>
             <div class="gold-display">
@@ -17,13 +49,6 @@
                 <span id="gold">100</span> золота
             </div>
         </header>
-
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="boss"><i class="fas fa-skull-crossbones"></i> Главный Босс</button>
-            <button class="tab-btn" data-tab="shop"><i class="fas fa-shopping-cart"></i> Магазин</button>
-            <button class="tab-btn" data-tab="monsters"><i class="fas fa-spider"></i> Монстры</button>
-            <button class="tab-btn" data-tab="stats"><i class="fas fa-chart-line"></i> Статистика</button>
-        </nav>
 
         <main>
             <!-- Вкладка Главный Босс -->
@@ -227,6 +252,26 @@
                 </div>
             </section>
         </main>
+
+        <!-- Фиксированная панель навигации внизу экрана -->
+        <nav class="fixed-tabs">
+            <button class="fixed-tab-btn active" data-tab="boss">
+                <i class="fas fa-skull-crossbones"></i>
+                <span>Главный босс</span>
+            </button>
+            <button class="fixed-tab-btn" data-tab="shop">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Магазин</span>
+            </button>
+            <button class="fixed-tab-btn" data-tab="monsters">
+                <i class="fas fa-spider"></i>
+                <span>Монстры</span>
+            </button>
+            <button class="fixed-tab-btn" data-tab="stats">
+                <i class="fas fa-chart-line"></i>
+                <span>Статистика</span>
+            </button>
+        </nav>
 
         <footer>
             <p>MLBB Битва с Боссами &copy; 2025 | Для Telegram Mini Apps</p>

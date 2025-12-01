@@ -91,11 +91,26 @@ const Game = {
     
     // Настройка обработчиков событий
     setupEventListeners() {
-        // Переключение вкладок
+        // Кнопка начала игры (приветственное сообщение)
+        document.getElementById('start-game-btn').addEventListener('click', () => {
+            this.startGame();
+        });
+        
+        // Переключение вкладок (основные кнопки)
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const tab = e.target.dataset.tab;
                 this.switchTab(tab);
+                this.updateFixedTabs(tab);
+            });
+        });
+        
+        // Переключение вкладок (фиксированные кнопки внизу)
+        document.querySelectorAll('.fixed-tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const tab = e.target.closest('.fixed-tab-btn').dataset.tab;
+                this.switchTab(tab);
+                this.updateFixedTabs(tab);
             });
         });
         
@@ -129,6 +144,27 @@ const Game = {
         document.getElementById('reset-btn').addEventListener('click', () => {
             if (confirm('Вы уверены? Весь прогресс будет потерян!')) {
                 this.resetGame();
+            }
+        });
+    },
+    
+    // Начало игры (скрытие приветственного сообщения)
+    startGame() {
+        document.getElementById('welcome-message').classList.remove('active');
+        setTimeout(() => {
+            document.getElementById('welcome-message').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
+            this.showNotification('Игра началась! Удачи!', 'success');
+        }, 500);
+    },
+    
+    // Обновление состояния фиксированных вкладок
+    updateFixedTabs(activeTab) {
+        document.querySelectorAll('.fixed-tab-btn').forEach(btn => {
+            if (btn.dataset.tab === activeTab) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
             }
         });
     },
