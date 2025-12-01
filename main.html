@@ -240,6 +240,36 @@
     <!-- Уведомления -->
     <div id="notification" class="notification"></div>
 
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
     <script src="script.js"></script>
+    
+    <script>
+        // Инициализация Telegram Web App
+        if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+            const tg = Telegram.WebApp;
+            
+            // Инициализация
+            tg.expand();
+            tg.enableClosingConfirmation();
+            tg.setHeaderColor('#0f0c29');
+            tg.setBackgroundColor('#0f0c29');
+            
+            // Показываем кнопку "Закрыть" в Telegram
+            tg.MainButton.setText('Закрыть');
+            tg.MainButton.onClick(function() {
+                tg.close();
+            });
+            tg.MainButton.show();
+            
+            // Отправляем данные в бота при необходимости
+            tg.ready();
+            
+            console.log('Telegram Web App initialized');
+        } else {
+            console.log('Running in browser mode');
+        }
+    </script>
 </body>
 </html>

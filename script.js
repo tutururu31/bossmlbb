@@ -290,6 +290,11 @@ const Game = {
             color: monsterType.color
         };
         
+        // Сброс состояния кнопки атаки
+        const attackBtn = document.getElementById('attack-current-monster-btn');
+        attackBtn.disabled = false;
+        attackBtn.style.opacity = '1';
+        
         // Показ уведомления о спавне
         const notification = document.getElementById('monster-spawn-notification');
         notification.textContent = `Появился ${monsterType.name}!`;

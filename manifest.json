@@ -1,0 +1,26 @@
+{
+  "name": "MLBB Битва с Боссами",
+  "short_name": "BossMLBB",
+  "description": "Мини-приложение для Telegram: битва с боссами, улучшения и ферма монстров",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3612/3612565.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3612/3612565.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "main.html",
+  "display": "standalone",
+  "theme_color": "#0f0c29",
+  "background_color": "#0f0c29",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "ru"
+}
